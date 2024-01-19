@@ -35,6 +35,19 @@ class ArticleController
 
     public function show()
     {
-        // TODO: this can be used for a detail page
+        $article = $this->getArticleById();
+        require 'View/articles/show.php';
+    }
+
+    public function getArticleById()
+    {
+        $query = "SELECT * FROM articles WHERE id = ?";
+        $statement = $this->databaseManager->connection->prepare($query);
+        $getData = [$_GET['id']];
+        $statement->execute($getData);
+        $rawArticle = $statement->fetchAll()[0];
+
+        $specificArticle = new Article($rawArticle['title'], $rawArticle['description'], $rawArticle['publish_date'], $rawArticle['id']);
+        return $specificArticle;
     }
 }

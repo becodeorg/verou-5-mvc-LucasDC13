@@ -8,7 +8,7 @@
         <?php foreach ($articles as $article) : ?>
             <li>
                 <h1><?= $article->title ?></h1>
-                <p>published on <?= $article->formatPublishDate() ?></p>
+                <p>Published on <?= $article->formatPublishDate() ?></p>
                 <a href="index.php?page=articles-show&id=<?= $article->id ?>">Show article</a>
             </li>
 
