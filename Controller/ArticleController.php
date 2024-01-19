@@ -7,7 +7,8 @@ class ArticleController
 {
     public $databaseManager; 
 
-    public function __construct($databaseManager){
+    public function __construct($databaseManager)
+    {
         $this->databaseManager = $databaseManager;
     } 
 
